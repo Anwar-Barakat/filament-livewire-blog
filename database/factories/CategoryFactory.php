@@ -18,7 +18,7 @@ class CategoryFactory extends Factory
     {
         $title = fake()->sentence();
         return [
-          'title' => fake()->sentence(),
+            'title' => fake()->sentence(),
             'slug' => fake()->slug(2),
         ];
     }

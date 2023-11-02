@@ -22,6 +22,7 @@
 
     @include('layouts.partials.header')
 
+    @yield('hero')
 
     <main class="container mx-auto flex flex-grow">
         {{ $slot }}
