@@ -1,5 +1,6 @@
 <a href="/">
-    <div class="text-gray-800 font-semibold ">
-        <span class="text-yellow-500 text-3xl">&lt;BLOG&gt;</span>
-    </div>
+    <img src="{{ asset('assets/logo.svg') }}"
+        width="36"
+        height="36" />
+
 </a>
