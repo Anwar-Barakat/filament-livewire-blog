@@ -14,6 +14,5 @@
         <x-button class="block" @click="$dispatch('search',{
             search : search
          })">Search</x-button>
-
     </div>
 </div>

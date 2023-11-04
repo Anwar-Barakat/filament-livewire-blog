@@ -19,11 +19,15 @@ class PostList extends Component
     #[Url()]
     public $search = '';
 
+    #[Url()]
+    public $category;
+
     #[Computed()]
     public function posts()
     {
         return Post::published()
             ->when($this->search, fn ($q) => $q->where('title', 'like', "%{$this->search}%"))
+            ->when($this->category, fn ($q) => $q->withCategories($this->category))
             ->orderBy('published_at', $this->sort)->paginate(5);
     }
 

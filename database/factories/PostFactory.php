@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -18,13 +19,13 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => User::factory(),
-            'title' => fake()->sentence(),
-            'slug' => fake()->slug(4),
-            'image' => fake()->imageUrl(),
-            'body' => fake()->paragraph(10),
-            'published_at' => fake()->dateTimeBetween('-1 Month', '+1 Month'),
-            'featured' => fake()->boolean(10),
+            'user_id'       => User::inRandomOrder()->first()->id,
+            'title'         => fake()->sentence(),
+            'slug'          => fake()->slug(4),
+            'image'         => fake()->imageUrl(),
+            'body'          => fake()->paragraph(10),
+            'published_at'  => fake()->dateTimeBetween('-1 Month', '+1 Month'),
+            'featured'      => fake()->boolean(10),
         ];
     }
 }
