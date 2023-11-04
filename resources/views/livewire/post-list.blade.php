@@ -1,8 +1,22 @@
 <div class="md:col-span-3 col-span-4">
     <div id="posts" class=" px-3 lg:px-7 py-6">
         <div class="flex justify-between items-center border-b border-gray-100">
-            <div class="text-gray-600">
-                {{ $search ? "Searching ({$search})" : "" }}
+            <div class="text-gray-600 flex justify-between items-start flex-col gap-1">
+                @if ($this->activeCategory || $search)
+                <x-button class="bg-red-600 text-white mb-2" wire:click='clearFilters'>Clear Filters</x-button>
+                @endif
+
+                @if ($this->activeCategory)
+                <div class="flex items-center gap-2">
+
+                    <x-badge wire:navigate href="{{ route('blog',['category'=>$this->activeCategory->slug]) }}" wire:navigate :textColor="$this->activeCategory->text_color" :bgColor="$this->activeCategory->bg_color">
+                        {{ $this->activeCategory->title }}
+                    </x-badge>
+                    @if ($search)
+                    <span>Containing : <strong>({{ $search }})</strong></span>
+                    @endif
+                </div>
+                @endif
             </div>
             <div id="filter-selector" class="flex items-center space-x-4 font-light ">
                 <button class="text-gray-500 py-4 {{ $this->sort ==='desc' ? 'border-b border-gray-700 text-gray-900' :'' }}" wire:click="setSort('desc')">Latest</button>

@@ -7,8 +7,7 @@
             Welcome to <span class="text-orange-500">BLOG</span> <span class="text-gray-900"> News</span>
         </h1>
         <p class="text-gray-500 text-lg mt-1">Best Blog in the universe</p>
-        <a class="px-3 py-2 text-lg text-white bg-gray-800 rounded mt-5 inline-block"
-            href="http://127.0.0.1:8000/blog">
+        <a class="px-3 py-2 text-lg text-white bg-gray-800 rounded mt-5 inline-block" href="http://127.0.0.1:8000/blog">
             Start
             Reading</a>
     </div>
@@ -21,16 +20,13 @@
                 <div class="w-full">
                     <div class="grid grid-cols-3 gap-10 w-full">
                         @forelse ($featuredPosts as $featuredPost)
-                        <div class="md:col-span-1 col-span-3">
-                            <x-posts.post-card :post="$featuredPost" />
-                        </div>
+                        <x-posts.post-card :post="$featuredPost" class="md:col-span-1 col-span-3" />
                         @empty
                         <h1>Not Results Found!!</h1>
                         @endforelse
                     </div>
                 </div>
-                <a class="mt-10 block text-center text-lg text-orange-500 font-semibold"
-                    href="http://127.0.0.1:8000/blog">More Posts</a>
+                <a class="mt-10 block text-center text-lg text-orange-500 font-semibold" href="http://127.0.0.1:8000/blog">More Posts</a>
             </div>
             <hr>
 
@@ -38,17 +34,14 @@
             <div class="w-full mb-5">
                 <div class="grid grid-cols-3 gap-10 gap-y-32 w-full">
                     @forelse ($latestPosts as $latestPost)
-                    <div class="md:col-span-1 col-span-3">
-                        <x-posts.post-card :post="$latestPost" />
-                    </div>
+                    <x-posts.post-card :post="$latestPost" class="md:col-span-1 col-span-3" />
                     @empty
                     <h1>Not Results Found!!</h1>
                     @endforelse
 
                 </div>
             </div>
-            <a class="mt-10 block text-center text-lg text-orange-500 font-semibold"
-                href="http://127.0.0.1:8000/blog">More Posts</a>
+            <a class="mt-10 block text-center text-lg text-orange-500 font-semibold" href="http://127.0.0.1:8000/blog">More Posts</a>
         </div>
     </main>
 

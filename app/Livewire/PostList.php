@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Category;
 use App\Models\Post;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
@@ -27,7 +28,7 @@ class PostList extends Component
     {
         return Post::published()
             ->when($this->search, fn ($q) => $q->where('title', 'like', "%{$this->search}%"))
-            ->when($this->category, fn ($q) => $q->withCategories($this->category))
+            ->when($this->activeCategory(), fn ($q) => $q->withCategories($this->category))
             ->orderBy('published_at', $this->sort)->paginate(5);
     }
 
@@ -37,9 +38,23 @@ class PostList extends Component
         $this->search = $search;
     }
 
+    #[Computed()]
+    public function activeCategory()
+    {
+        return Category::where('slug', $this->category)->first();
+    }
+
     public function setSort($sort)
     {
         $this->sort = ($sort === 'desc') ? 'desc' : 'asc';
+    }
+
+    public function clearFilters()
+    {
+        $this->search = '';
+        $this->category = '';
+        $this->resetPage();
+        $this->reset(['search', 'category']);
     }
 
     public function render()

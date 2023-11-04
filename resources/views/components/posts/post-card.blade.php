@@ -1,5 +1,6 @@
 @props(['post'])
-<div>
+
+<div {{ $attributes }}>
     <a href="http://127.0.0.1:8000/blog/laravel-34">
         <div>
             <img class="w-full rounded-xl" src="{{ $post->image }}">
