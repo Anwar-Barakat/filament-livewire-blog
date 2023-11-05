@@ -9,7 +9,7 @@
                 @if ($this->activeCategory)
                 <div class="flex items-center gap-2">
 
-                    <x-badge wire:navigate href="{{ route('blog',['category'=>$this->activeCategory->slug]) }}" wire:navigate :textColor="$this->activeCategory->text_color" :bgColor="$this->activeCategory->bg_color">
+                    <x-badge wire:navigate href="{{ route('blog.index',['category'=>$this->activeCategory->slug]) }}" wire:navigate :textColor="$this->activeCategory->text_color" :bgColor="$this->activeCategory->bg_color">
                         {{ $this->activeCategory->title }}
                     </x-badge>
                     @if ($search)

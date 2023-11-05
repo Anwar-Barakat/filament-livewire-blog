@@ -13,4 +13,9 @@ class PostController extends Controller
         $categories = Category::whereHas('posts', fn ($q) => $q->published())->get();
         return view('blog.posts.index', ['categories' => $categories]);
     }
+
+    public function show(Post $post)
+    {
+        return view('blog.posts.show', ['post' => $post]);
+    }
 }

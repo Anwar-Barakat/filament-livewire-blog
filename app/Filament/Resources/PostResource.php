@@ -36,7 +36,7 @@ class PostResource extends Resource
         return $form
             ->schema([
                 Section::make('Relationships')->schema([
-                    Select::make('author')->relationship('author', 'name')
+                    Select::make('user_id')->relationship('author', 'name')
                         ->searchable()->required(),
                     Select::make('categories')->relationship('categories', 'title')
                         ->searchable()->required()
