@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-app-layout>
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
@@ -9,9 +9,9 @@
         </div>
 
         @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
+        <div class="mb-4 font-medium text-sm text-green-600">
+            {{ session('status') }}
+        </div>
         @endif
 
         <x-validation-errors class="mb-4" />
@@ -31,4 +31,4 @@
             </div>
         </form>
     </x-authentication-card>
-</x-guest-layout>
+    </x-guest-layout>

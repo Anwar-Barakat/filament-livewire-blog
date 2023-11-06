@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-app-layout>
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
@@ -29,19 +29,14 @@
                 </div>
 
                 <div class="flex items-center justify-end mt-4">
-                    <button type="button" class="text-sm text-gray-600 hover:text-gray-900 underline cursor-pointer"
-                                    x-show="! recovery"
-                                    x-on:click="
+                    <button type="button" class="text-sm text-gray-600 hover:text-gray-900 underline cursor-pointer" x-show="! recovery" x-on:click="
                                         recovery = true;
                                         $nextTick(() => { $refs.recovery_code.focus() })
                                     ">
                         {{ __('Use a recovery code') }}
                     </button>
 
-                    <button type="button" class="text-sm text-gray-600 hover:text-gray-900 underline cursor-pointer"
-                                    x-cloak
-                                    x-show="recovery"
-                                    x-on:click="
+                    <button type="button" class="text-sm text-gray-600 hover:text-gray-900 underline cursor-pointer" x-cloak x-show="recovery" x-on:click="
                                         recovery = false;
                                         $nextTick(() => { $refs.code.focus() })
                                     ">
@@ -55,4 +50,4 @@
             </form>
         </div>
     </x-authentication-card>
-</x-guest-layout>
+    </x-guest-layout>

@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="All Posts">
     <main class="container mx-auto px-5 flex flex-grow">
         <div class="w-full grid grid-cols-4 gap-10">
             @livewire('post-list')
