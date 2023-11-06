@@ -44,6 +44,7 @@ class Post extends Model
         return $query->where('published_at', '<=', Carbon::now());
     }
 
+
     public function scopeWithCategories($query, string $category)
     {
         $query->whereHas('categories', fn ($q)  => $q->where('slug', $category));
@@ -52,6 +53,16 @@ class Post extends Model
     public function scopeFeatured($query)
     {
         return $query->where('featured', true);
+    }
+
+    public function scopePopular($query)
+    {
+        return $query->withCount('likes')->orderBy('likes_count', 'desc');
+    }
+
+    public function scopeSearch($query, $search = '')
+    {
+        return $query->where('title', 'like', "%{$search}%");
     }
 
     public function author(): BelongsTo
