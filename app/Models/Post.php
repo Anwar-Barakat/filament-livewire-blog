@@ -28,6 +28,15 @@ class Post extends Model
         'published_at' => 'datetime',
     ];
 
+    public function getImageAttribute($value)
+    {
+        if (str_starts_with($value, 'https://')) {
+            return $value;
+        } else {
+            return url('storage/' . $value);
+        }
+    }
+
     public function getReadingTime()
     {
         $minutes = round(str_word_count($this) / 250);

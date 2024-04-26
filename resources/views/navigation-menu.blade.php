@@ -9,8 +9,11 @@
                     <x-nav-link wire:navigate href="{{ route('home') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Home') }}
                     </x-nav-link>
-                    <x-nav-link wire:navigate href="{{ route('blog.index') }}" :active="request()->routeIs('blog')">
+                    <x-nav-link wire:navigate href="{{ route('blog.index') }}" :active="request()->routeIs('blog.index')">
                         {{ __('Blog') }}
+                    </x-nav-link>
+                    <x-nav-link wire:navigate href="{{ route('blog.create') }}" :active="request()->routeIs('blog.create')">
+                        {{ __('Add Post') }}
                     </x-nav-link>
                 </div>
             </div>

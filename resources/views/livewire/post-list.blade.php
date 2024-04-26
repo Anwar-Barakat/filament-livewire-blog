@@ -37,7 +37,7 @@
         </div>
 
         <div class="my-3">
-            {{ $this->posts->onEachSide(1)->links() }}
+            {{ $this->posts->onEachSide(1)->links('livewire::custom-pacgination') }}
         </div>
     </div>
 </div>

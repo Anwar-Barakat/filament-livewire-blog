@@ -4,6 +4,7 @@
         <div class="article-thumbnail col-span-4 flex items-center">
             <a wire:navigate href="{{ route('blog.show',['post'=>$post]) }}">
                 <img class="mw-100 mx-auto rounded-xl shadow-lg" src="{{ $post->image }}" alt="thumbnail">
+
             </a>
         </div>
         <div class="col-span-8">
