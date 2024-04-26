@@ -12,9 +12,10 @@ class CreatePost extends Component
 {
     use WithFileUploads;
     public PostForm $form;
-    public ?Post $post = null;
     public function submit(){
         $this->form->add();
+
+        $this->dispatch('post-created');
     }
     public function render()
     {

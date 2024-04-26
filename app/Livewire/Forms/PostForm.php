@@ -26,15 +26,17 @@ class PostForm extends Form
         $validated = $this->validate();
         try {
             if ($this->image) {
-                $this->image->store('uploads');
+                $this->image->store(path: 'uploads');
+                dd($this->image->store(path: 'uploads'));
+                $validated['image'] = $this->image->store('uploads');
             }
-            $validated['image'] = $this->image->store('uploads', 'public');
             $validated['user_id'] = auth()->id();
-            Post::create($validated);
+            $post = Post::create($validated);
 
             $this->reset(['title', 'slug', 'body', 'published_at', 'image']);
 
             toastr()->success('Post added successfully');
+
         } catch (\Exception $e) {
             toastr()->error('Error occurred while adding the post: ' . $e->getMessage());
         }

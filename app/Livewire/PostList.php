@@ -64,6 +64,12 @@ class PostList extends Component
         $this->reset(['search', 'category']);
     }
 
+    // #[On('post-created')]
+    public function updatePostList($post = null){
+
+    }
+    
+    #[On('post-created')]
     public function render()
     {
         return view('livewire.post-list');
