@@ -36,7 +36,7 @@ class PostList extends Component
             ->when($this->popular, function ($query) {
                 $query->popular();
             })
-            ->orderBy('published_at', $this->sort)->paginate(5);
+            ->orderBy('published_at', $this->sort)->paginate(30);
     }
 
     #[On('search')]
@@ -68,7 +68,7 @@ class PostList extends Component
     public function updatePostList($post = null){
 
     }
-    
+
     #[On('post-created')]
     public function render()
     {

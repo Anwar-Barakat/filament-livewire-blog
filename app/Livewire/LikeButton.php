@@ -13,6 +13,7 @@ class LikeButton extends Component
 
     public function toggleLike()
     {
+
         if (auth()->guest()) {
             $this->redirect(route('login'), true);
         }
@@ -22,6 +23,7 @@ class LikeButton extends Component
             $user->likes()->detach($this->post);
             return;
         }
+        
         $user->likes()->attach($this->post);
     }
 

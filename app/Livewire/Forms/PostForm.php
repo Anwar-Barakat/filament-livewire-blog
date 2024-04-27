@@ -26,9 +26,7 @@ class PostForm extends Form
         $validated = $this->validate();
         try {
             if ($this->image) {
-                $this->image->store(path: 'uploads');
-                dd($this->image->store(path: 'uploads'));
-                $validated['image'] = $this->image->store('uploads');
+                $validated['image'] = $this->image->store('uploads','public');
             }
             $validated['user_id'] = auth()->id();
             $post = Post::create($validated);

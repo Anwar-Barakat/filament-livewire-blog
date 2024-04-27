@@ -17,8 +17,6 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Post::class)->index();
             $table->foreignIdFor(User::class)->index();
-
-            
             $table->timestamps();
         });
     }
