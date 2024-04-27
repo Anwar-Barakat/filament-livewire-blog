@@ -1,4 +1,6 @@
-<x-app-layout title="Add Post">
-    @livewire('create-post')
-    @livewire('post-list')
-</x-app-layout>
+<x-guest-layout title="Add Post">
+    <div class="flex flex-col">
+        @livewire('create-post')
+        @livewire('post-list')
+    </div>
+</x-guest-layout>

@@ -22,6 +22,7 @@
 
 <body class="font-sans antialiased">
     <x-banner />
+    <h1>New component</h1>
     @include('layouts.partials.header')
 
     @yield('hero')
